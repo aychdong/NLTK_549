@@ -9,15 +9,21 @@ def getwords(f):
         words.extend(nltk.word_tokenize(sen))
     return collections.Counter(words)
 
-def write_to_file(words, stop, file):
+def write_to_file(words, stop, punctuations, file):
     f = open(file, 'w')
+    numStops = 0
     for i in words:
         #for j in i:
             #f.write(str(j)+',')
         words, count = i
-        if words not in stop:
-            f.write(str(words)+','+str(count))
-            f.write('\n')
+        if words not in punctuations:
+            if words not in stop:
+                f.write(str(words)+','+str(count))
+                f.write('\n')
+	    else:
+	        numStops = numStops + count
+    return numStops
+	    
 
 def write_to_file_set(words, file):
     f = open(file, 'w')
@@ -38,7 +44,7 @@ if __name__ == '__main__':
     words2 = getwords(text2)
     stop = create_set(stoptext);
     punctuations = set(['.', ',', '"', "'", '?', '!', ':', ';', '(', ')', '[', ']', '{', '}', '/', '-', '*', '%', '+', '$', '@', '^', '~', '=', '<', '>'])
-    stop = stop.union(punctuations)
+    #stop = stop.union(punctuations)
     write_to_file_set(stop, '/home/dongchen/Documents/eecs549_HW1/stoplist_check.txt')
-    write_to_file(words1.most_common(), stop, '/home/dongchen/Documents/eecs549_HW1/results1.csv')
-    write_to_file(words2.most_common(), stop, '/home/dongchen/Documents/eecs549_HW1/results2.csv')
+    print write_to_file(words1.most_common(), stop, punctuations, '/home/dongchen/Documents/eecs549_HW1/results1.csv')
+    print write_to_file(words2.most_common(), stop, punctuations, '/home/dongchen/Documents/eecs549_HW1/results2.csv')
