@@ -1,14 +1,3 @@
-atrial,36
-abdominal,35
-right,32
-last,25
-old,21
-past,19
-normal,19
-pulmonary,18
-positive,17
-recent,17
-
 patient,75
 pain,70
 pt,48
@@ -31,10 +20,13 @@ rpda,3
 moderate,3
 paraplegia,3
 
-she,175
-he,108
-her,10
-it,4
-us,1
-they,1
-him,1
+atrial,36
+abdominal,35
+right,32
+last,25
+old,21
+past,19
+normal,19
+pulmonary,18
+positive,17
+recent,17
