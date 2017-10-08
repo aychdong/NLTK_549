@@ -43,7 +43,7 @@ if __name__ == '__main__':
     words1 = getwords(text1)
     words2 = getwords(text2)
     stop = create_set(stoptext);
-    punctuations = set(['.', ',', '"', "'", '?', '!', ':', ';', '(', ')', '[', ']', '{', '}', '/', '-', '*', '%', '+', '$', '@', '^', '~', '=', '<', '>'])
+    punctuations = set(['.', ',', '"', "'", '?', '!', ':', ';', '(', ')', '[', ']', '{', '}', '/', '-', '*', '%', '+', '$', '@', '^', '~', '=', '<', '>', '...', '&', '|', '#', '\'\'','``',  '~'])
     #stop = stop.union(punctuations)
     write_to_file_set(stop, '/home/dongchen/Documents/eecs549_HW1/stoplist_check.txt')
     print write_to_file(words1.most_common(), stop, punctuations, '/home/dongchen/Documents/eecs549_HW1/results1.csv')
